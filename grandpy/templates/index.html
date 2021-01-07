@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Grandpy</title>
+</head>
+<body>
+<header>
+    <h1>Viens voir Grandpy !</h1>
+</header>
+<section>
+    <form id="user-text-form">
+        <p>
+            <label for="userText">Alors qu'as tu à me demander, mon petit ?</label>
+            <input type="text" id="userText" name="userText" placeholder="ajoutez votre requête ici"/>
+            <input type="submit" value="Envoyer"/>
+        </p>
+    </form>
+</section>
+<section id="result">
+      Utilisateur : <span id="request"></span><br />
+      Grandpy : <span id="response"></span><br />
+</section>
+<footer>
+    <h1>Clélio et ses réseaux sociaux !</h1>
+    <ul>
+        <li><a href=”https://github.com/cleliofavoccia/”>Github</a></li>
+        <li><a href=”https://www.linkedin.com/in/clelio-favoccia-2278bb9b/”>Linkedin</a></li>
+    </ul>
+</footer>
+<script>
+    let form = document.querySelector("#user-text-form");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        console.log("Vous avez bien appuyer sur envoyer");
+        // Envoyer le contenu du formulaire au serveur
+        fetch("/treat", {
+            method: "POST",
+            body: document.querySelector("#userText").value,
+            headers : {"Content-Type": "text/plain"}
+            })
+            .then(response => response.json())
+            .catch(error => console.log(error));
+    });
+
+    // Insérer contenu de la requête dans boîte de dialogue
+    let input = document.querySelector("#userText");
+    let output = document.querySelector("#request");
+    input.addEventListener('input', function(event) {
+    output.innerHTML = event.target.value;
+    });
+
+</script>
+</body>
+</html>
