@@ -162,7 +162,7 @@ class Parser:
         self.fill_up_stop_words()
 
         # Remove stop_words
-        user_request = [word for word in user_request.split(" ")
+        user_request = [word for word in user_request.split()
                         if word not in self.stop_words]
 
         user_request = " ".join(user_request)
