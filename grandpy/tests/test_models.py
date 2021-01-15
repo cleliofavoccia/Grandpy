@@ -51,12 +51,6 @@ class TestParser:
 
     def test_request_formatting_removed_stopwords(self, monkeypatch):
         """Receive a string and verify if stop_words are removed from it"""
-        stop_words = {"le", "et", "de", "il", "te", "plait",
-                      "la", "Merci", "avance", "salutations",
-                      "à", "Mamie"}
-
-        backup = Parser().stop_words
-        Parser().stop_words = stop_words
 
         assert Parser()\
                .request_formatting("le musée d'art et d'histoire "

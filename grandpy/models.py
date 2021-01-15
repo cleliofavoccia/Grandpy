@@ -4,6 +4,7 @@ import random
 import unicodedata
 
 import requests
+import json
 
 
 class Grandpy:
@@ -125,12 +126,12 @@ class Parser:
         self.user_request = None
         self.key_sentences = ['l\'adresse de ', 'ou se trouve ',
                               'ou est ', 'ou se situe ']
-        self.stop_words = set()
+        self.stop_words = None
 
     def fill_up_stop_words(self):
-        file = open("./grandpy/static/stop_words.txt", "r")
-        for i in file:
-            self.stop_words.add(i)
+        with open("./grandpy/data/stop_words.json", "r") as read_file:
+            self.stop_words = json.load(read_file)
+        return self.stop_words
 
     def transform_to_lowercase(self, user_request):
         """Convert all the character's string into lowercase"""
