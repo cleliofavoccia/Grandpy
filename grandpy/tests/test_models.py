@@ -53,13 +53,13 @@ class TestParser:
         """Receive a string and verify if stop_words are removed from it"""
 
         assert Parser()\
-               .request_formatting("le musée d'art et d'histoire "
-                                   "de Fribourg, s'il te plait?") \
-               == 'musée art histoire Fribourg'
+               .request_formatting("le musee d'art et d'histoire "
+                                   "de fribourg, s'il te plait?") \
+               == 'musee art histoire fribourg'
 
         assert Parser().request_formatting("la tour eiffel? "
-                                           "Merci d'avance et "
-                                           "salutations à Mamie.") \
+                                           "merci d'avance et "
+                                           "salutations a mamie.") \
                == 'tour eiffel'
 
 
