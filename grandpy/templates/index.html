@@ -4,6 +4,81 @@
     <meta charset="UTF-8">
     <title>Grandpy</title>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_key }}"></script>
+    <style type="text/css">
+
+      h1{
+        font-family : "Signika Negative", Times, serif;
+      }
+
+      a{
+        display: block;
+      }
+
+      #page{
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .map {
+        height: 300px;
+        width: 300px;
+        margin: 150px;
+        margin-bottom: 300px;
+        background: #D3D3D3;
+      }
+
+      .response, .request, .wiki, .talk{
+        font-family : "News Cycle", Times, serif;
+        color: white;
+        width: 500px;
+        height: 80px;
+        background: black;
+        border-radius: 10px;
+        box-shadow: 6px 6px 0px grey inset;
+        padding: 35px;
+      }
+
+      #userText{
+        font-family : "News Cycle", Times, serif;
+        color: black;
+        border: 10px, groove, dashed;
+        background: #D3D3D3;
+        width: 100%;
+      }
+
+      @media all and (max-device-width: 480px) {
+        h1{
+        font-family : "Signika Negative", Times, serif;
+      }
+
+      .map {
+        height: 100px;
+        width: 100px;
+        margin: 50px;
+        margin-bottom: 100px;
+        background: #D3D3D3;
+      }
+
+      .response, .request, .wiki, .talk{
+        font-family : "News Cycle", Times, serif;
+        color: white;
+        width: 100%;
+        height: 80px;
+        background: black;
+        border-radius: 10px;
+        box-shadow: 6px 6px 0px grey inset;
+        padding: 35px;
+      }
+
+      #userText{
+        font-family : "News Cycle", Times, serif;
+        color: black;
+        border: 10px, groove, dashed;
+        background: #D3D3D3;
+        width: 100%
+      }
+
+</style>
 </head>
 <body>
 <header>
@@ -24,7 +99,7 @@
     <form id="user-text-form">
         <p>
             <label for="userText"></label>
-            <input type="text" id="userText" name="userText" placeholder="ajoutez votre requête ici" size="150"/>
+            <input type="text" id="userText" name="userText" placeholder="ajoutez votre requête ici"/>
             <input type="submit" value="Envoyer"/>
         </p>
     </form>
@@ -133,74 +208,5 @@
         });
 
 </script>
-<style type="text/css">
-
-      h1{
-        font-family : "Signika Negative", Times, serif;
-      }
-
-      a{
-        display: block;
-      }
-
-      #page{
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .map {
-        height: 300px;
-        width: 300px;
-        margin: 150px;
-        margin-bottom: 300px;
-        background: #D3D3D3;
-      }
-
-      .response, .request, .wiki, .talk{
-        font-family : "News Cycle", Times, serif;
-        color: white;
-        width: 500px;
-        height: 80px;
-        background: black;
-        border-radius: 10px;
-        box-shadow: 6px 6px 0px grey inset;
-        padding: 35px;
-      }
-
-      #userText{
-        font-family : "News Cycle", Times, serif;
-        color: black;
-        border: 10px, groove, dashed;
-        background: #D3D3D3;
-      }
-
-      @media all and (max-device-width: 480px) {
-        h1{
-        font-family : "Signika Negative", Times, serif;
-      }
-
-      .map {
-        height: 100%;
-      }
-
-      .response, .request, .wiki, .talk{
-        font-family : "News Cycle", Times, serif;
-        color: white;
-        width: 100%;
-        height: 80px;
-        background: black;
-        border-radius: 10px;
-        box-shadow: 6px 6px 0px grey inset;
-        padding: 35px;
-      }
-
-      #userText{
-        font-family : "News Cycle", Times, serif;
-        color: black;
-        border: 10px, groove, dashed;
-        background: #D3D3D3;
-      }
-
-</style>
 </body>
 </html>
