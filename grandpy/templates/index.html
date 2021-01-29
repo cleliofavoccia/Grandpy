@@ -10,6 +10,12 @@
         font-family : "Signika Negative", Times, serif;
       }
 
+      .title{
+        font-family : "Signika Negative", Times, serif;
+        margin-top: 145px;
+        margin-left: 150px;
+       }
+
       a{
         display: block;
       }
@@ -23,6 +29,7 @@
         height: 300px;
         width: 300px;
         margin: 150px;
+        margin-top: 10px;
         margin-bottom: 300px;
         background: #D3D3D3;
       }
@@ -46,10 +53,21 @@
         width: 100%;
       }
 
-      @media all and (max-device-width: 480px) {
+      @media all and (max-device-width: 1280px) {
       h1{
         font-family : "Signika Negative", Times, serif;
+        font-size : 40px;
       }
+
+      .title{
+        font-family : "Signika Negative", Times, serif;
+        font-size : 30px;
+        margin-top: 2000px;
+       }
+
+      #submit{
+        font-size : 30px;
+        }
 
       #page{
         display: flex;
@@ -60,16 +78,15 @@
         height: 300px;
         width: 300px;
         margin: 30px;
-        margin-top: 300px;
-        margin-bottom: 700px;
         background: #D3D3D3;
       }
 
       .response, .request, .wiki, .talk{
         font-family : "News Cycle", Times, serif;
+        font-size : 30px;
         color: white;
         width: 50%;
-        height: 180px;
+        height: 650px;
         background: black;
         border-radius: 10px;
         box-shadow: 6px 6px 0px grey inset;
@@ -78,12 +95,69 @@
 
       #userText{
         font-family : "News Cycle", Times, serif;
+        font-size : 30px;
         color: black;
         border: 10px, groove, dashed;
         background: #D3D3D3;
         width: 100%
       }
 
+      .lien{
+       font-size : 40px;
+      }
+
+    @media all and (max-device-width: 480px) {
+      h1{
+        font-family : "Signika Negative", Times, serif;
+        font-size : 55px;
+      }
+
+      .title{
+        font-family : "Signika Negative", Times, serif;
+        font-size : 55px;
+        margin-top: 0px;
+       }
+
+      .lien{
+        font-size : 55px;
+      }
+
+      #submit{
+        font-size : 55px;
+        }
+
+
+      #page{
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .map {
+        height: 600px;
+        width: 600px;
+        background: #D3D3D3;
+      }
+
+      .response, .request, .wiki, .talk{
+        font-family : "News Cycle", Times, serif;
+        font-size : 55px;
+        color: white;
+        width: 100%;
+        height: 650px;
+        background: black;
+        border-radius: 10px;
+        box-shadow: 6px 6px 0px grey inset;
+        padding: 35px;
+      }
+
+      #userText{
+        font-family : "News Cycle", Times, serif;
+        font-size : 55px;
+        color: black;
+        border: 10px, groove, dashed;
+        background: #D3D3D3;
+        width: 100%
+      }
 </style>
 </head>
 <body>
@@ -106,7 +180,7 @@
         <p>
             <label for="userText"></label>
             <input type="text" id="userText" name="userText" placeholder="ajoutez votre requête ici"/>
-            <input type="submit" value="Envoyer"/>
+            <input id="submit" type="submit" value="Envoyer"/>
         </p>
     </form>
 </section>
@@ -115,8 +189,8 @@
 <footer>
     <h1>Clélio et ses réseaux sociaux !</h1>
     <ul>
-        <li><a href=”https://github.com/cleliofavoccia/”>Github</a></li>
-        <li><a href=”https://www.linkedin.com/in/clelio-favoccia-2278bb9b/”>Linkedin</a></li>
+        <li><a class="lien" href=”https://github.com/cleliofavoccia/”>Github</a></li>
+        <li><a class="lien" href=”https://www.linkedin.com/in/clelio-favoccia-2278bb9b/”>Linkedin</a></li>
     </ul>
 </footer>
 
@@ -160,6 +234,9 @@
         let map = document.createElement("div");
         map.setAttribute("class", "map");
         map.setAttribute("id", i+5);
+        let title_map = document.createElement("p");
+        title_map.setAttribute("class", "title");
+        maps.appendChild(title_map);
         maps.appendChild(map);
 
         // Utils to send and receive response from application
@@ -196,6 +273,7 @@
                 grandpy_talk.appendChild(grandpy_pseudo);
                 grandpy_talk.appendChild(sentence);
                 grandpy_talk.appendChild(wiki_extract);
+                title_map.textContent = data.address;
 
                 wiki.setAttribute("href", data.url);
                 wiki.appendChild(wiki_text);
